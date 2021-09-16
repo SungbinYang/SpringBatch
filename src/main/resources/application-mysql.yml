@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    hikari:
+      username: root
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/spring_batch?characterEncoding=UTF-8&serverTimezone=UTC
+      password: 1234
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  batch:
+    initialize-schema: never

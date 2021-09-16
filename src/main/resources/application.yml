@@ -3,3 +3,4 @@ spring:
     job:
       names: ${job.name:NONE}
     initialize-schema:
+

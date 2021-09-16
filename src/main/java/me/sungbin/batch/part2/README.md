@@ -50,6 +50,27 @@
       * ALWAYS : 항상 실행
       * EMBEDDED : 내장 DB일 때만 실행
       * NEVER : 항상 실행 안함
-   * NEVER : 항상 실행 안함
 
 ![](../../../../../resources/img/03.png)
+
+## Job, JobInstance, JobExecution, Step, StepExecution 이해
+- JobInstance : BATCH_JOB_INSTANCE 테이블과 매핑
+- JobExecution : BATCH_JOB_EXECUTION 테이블과 매핑
+- JobParameters : BATCH_JOB_EXECUTION_PARAMS 테이블과 매핑
+- ExecutionContext : BATCH_JOB_EXECUTION_CONTEXT 테이블과 매핑
+![](../../../../../resources/img/04.png)
+- JobInstance의 생성 기준은 JobParamters 중복 여부에 따라 생성된다.
+- 다른 parameter로 Job이 실행되면, JobInstance가 생성된다.
+- 같은 parameter로 Job이 실행되면, 이미 생성된 JobInstance가 실행된다.
+- JobExecution은 항상 새롭게 생성된다.
+- 예를 들어
+    * 처음 Job 실행 시 date parameter가 1월1일로 실행 됐다면, 1번 JobInstance가 생성된다.
+    * 다음 Job 실행 시 date parameter가 1월2일로 실행 됐다면, 2번 JobInstance가 생성된다.
+    * 다음 Job 실행 시 date parameter가 1월2일로 실행 됐다면, 2번 JobInstance가 재 실행된다.
+        * 이때 Job이 재실행 대상이 아닌 경우 에러가 발생한다.
+- Parameter가 없는 Job을 항상 새로운 JobInstance가 실행되도록 RunIdIncrementer가 제공된다.
+- StepExecution : BATCH_STEP_EXECUTION 테이블과 매핑
+- ExecutionContext : BATCH_STEP_EXECUTION_CONTEXT 테이블과 매핑
+![](../../../../../resources/img/05.png)
+
+
