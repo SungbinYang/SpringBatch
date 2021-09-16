@@ -9,3 +9,4 @@
 - 스프링 배치 기본 구조
 - 스프링 배치 테이블 구조와 이해
 - Job, JobInstance, JobExecution, Step, StepExecution 이해
+- 데이터 공유 ExecutionContext 이해

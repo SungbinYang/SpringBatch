@@ -71,6 +71,11 @@
 - Parameter가 없는 Job을 항상 새로운 JobInstance가 실행되도록 RunIdIncrementer가 제공된다.
 - StepExecution : BATCH_STEP_EXECUTION 테이블과 매핑
 - ExecutionContext : BATCH_STEP_EXECUTION_CONTEXT 테이블과 매핑
+
 ![](../../../../../resources/img/05.png)
+
+## 데이터 공유 ExecutionContext 이해
+- Job 내에서 공유할 수 있는 BATCH_JOB_EXECUTION_CONTEXT
+- 하나의 Step에서 공유할 수 있는 BATCH_STEP_EXECUTION_CONTEXT
 
 
