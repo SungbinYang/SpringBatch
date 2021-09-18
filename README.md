@@ -10,3 +10,6 @@
 - 스프링 배치 테이블 구조와 이해
 - Job, JobInstance, JobExecution, Step, StepExecution 이해
 - 데이터 공유 ExecutionContext 이해
+
+## 03. 스프링 배치 기초 이해하기
+- Task 기반 배치와 Chunk 기반 배치
