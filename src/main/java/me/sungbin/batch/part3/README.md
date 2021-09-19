@@ -89,3 +89,7 @@
 - JdbcBatchItemWriter는 bulk insert/update/delete처리
   * insert into person (name, age, address) values (1,2,3), (4,5,6), (7,8,9);
 - 단건 처리가 아니기 때문에 비교적 높은 성능 
+
+## JPA 데이터 쓰기
+- JpaItemWriter는 JPA Entity 기반으로 데이터를 DB에 write
+- Entity를 하나씩 EntityManager.persist 또는 EntityManager.merge로 insert
