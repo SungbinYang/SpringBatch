@@ -136,3 +136,57 @@
 - Step 실행 전과 후에 실행할 수 있는 StepExecutionListener
 
 ![](../../../../../resources/img/14.png)
+
+## StepListener 이해
+- ItemReader 전, 후, 에러 처리 ItemReadListener
+- ItemProcessor 전, 후, 에러 처리 ItemProcessListener
+- ItemWriter 전, 후, 에러 처리 ItemWriteListener
+
+![](../../../../../resources/img/15.png)
+
+- Step에 관련된 모든 Listener는 StepListener를 상속
+- StepExecutionListener
+- SkipListener
+- ItemReadListener
+- ItemProcessListener
+- ItemWriteListener
+- ChunkListener
+
+![](../../../../../resources/img/16.png)
+
+- SkipListener
+  * onSkipInRead : @OnSkipInRead
+    * ItemReader.read() 메소드 호출 전 호출
+  * onSkipInWrite : @OnSkipInWrite
+    * ItemWriter에서 Skip이 발생한 경우 호
+  * onSkipInProcess : @OnSkipInProcess
+    * ItemProcessor에서 Skip이 발생한 경우 호출
+- ItemReadListener
+  * beforeRead : @BeforeRead
+    * ItemReader.read() 메소드 호출 전 호출
+  * afterRead : @AfterRead
+    * ItemReader.read() 메소드 호출 후 호출
+  * onReadError : @OnReadError
+    * ItemReader.read() 메소드에서 에러 발생 시 호출
+- ItemWriteListener
+  * beforeWrite : @BeforeRead
+    * ItemWriter.write() 메소드 호출 전 호출
+  * afterWrite : @AfterRead
+    * ItemWriter.write() 메소드 호출 후 호출
+  * onWriteError : @OnWriteError
+    * ItemWriter.write() 메소드에서 에러 발생 시 호출
+- ItemProcessListener
+  * beforeProcess : @BeforeProcess
+    * ItemProcess.process() 메소드 호출 전 호출
+  * afterProcess : @AfterProcess
+    * ItemProcess.process() 메소드 호출 후 호출
+  * onProcessError : @OnProcessError
+    * ItemProcess.process() 메소드에서 에러 발생 시 호출
+- ChunkListener
+  * beforeChunk : @BeforeChunk
+    * chunk 실행 전 호출
+  * afterChunk : @BfterChunk
+    * chunk 실행 후 호출 
+  * afterChunkError : @BfterChunkError
+    * chunk 실행 중 에러 발생 시 호출
+  
