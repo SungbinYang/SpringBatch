@@ -189,4 +189,25 @@
     * chunk 실행 후 호출 
   * afterChunkError : @BfterChunkError
     * chunk 실행 중 에러 발생 시 호출
+
+## skip 예외처리
+- step 수행 중 발생한 특정 Exception과 에러 횟수 설정으로 예외처리 설정
+- skip(NotFoundNameException.class), skipLimit(3) 으로 설정된 경우
+  * NotFoundNameException 발생 3번까지는 에러를 skip 한다.
+  * NotFoundNameException 발생 4번째는 Job과 Step의 상태는 실패로 끝나며, 배치가 중지된다.
+  * 단, 에러가 발생하기 전까지 데이터는 모두 처리된 상태로 남는다.
+- Step은 chunk 1개 기준으로 Transaction 동작
+  * 예를 들어 items = 100, chunk.size =10, 총 chunk 동작 횟수 = 10
+    * chunk 1-9는 정상 처리, chunk 10에서 Exception이 발생한 경우
+    * chunk 1-9 에서 처리된 데이터는 정상 저장되고, Job과 Step의 상태는 FAILED 처리
+  * 배치 재 실행 시 chunk 10 부터 처리할 수 있도록 배치를 만든다.
+- 추가 요구사항
+  * Person.name이 empty String인 경우 NotFoundNameException 발생
+  * NotFoundNameException이 3번 이상 발생한 경우 step 실패 처리
+- SkipListener가 실행 되는 조건
+  * 에러 발생 횟수가 skipLimit 이하인 경우
+    * skipLimit(2), throw Exception이 3번 발생하면 실행되지 않는다.
+    * skipLimit(3), throw Exception이 3번 발생하면 실행된다.
+    * skip 설정 조건에 해당하는 경우에만 실행된다.
+  * SkipListener는 항상 faultTolerant() 메소드 후에 선언
   

@@ -28,3 +28,4 @@
 - 테스트 코드 작성하기
 - JobExecutionListener, StepExecutionListener 이해
 - StepListener 이해
+- skip 예외처리
