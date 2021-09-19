@@ -41,3 +41,4 @@
 - ItemStream은 ExecutionContext로 read, write 정보를 저장
   
   ![](../../../../../resources/img/07.png)
+- FlatFileItemReader 클래스로 파일에 저장된 데이터를 읽어 객체에 매핑

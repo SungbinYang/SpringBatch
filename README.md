@@ -16,3 +16,4 @@
 - JobParameters 이해
 - @JobScope와 @StepScope 이해
 - ItemReader interface 구조
+- CSV 파일 데이터 읽기
