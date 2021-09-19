@@ -107,3 +107,17 @@
 - ItemWriter는 5개의 person만 받아 처리
 
 ![](../../../../../resources/img/12.png)
+
+## CSV 파일 데이터 읽고 MySQL DB에 insert하기
+- CSV 파일 데이터를 읽어 H2 DB에 데이터 저장하는 배치 개발
+- Reader
+  * 100개의 person data를 csv 파일에서 읽는다.
+- Processor
+  * allow_duplicate 파라미터로 person.name의 중복 여부 조건을 판단한다.
+  * `allow_duplicate=true` 인 경우 모든 person을 return 한다.
+  * `allow_duplicate=false 또는 null` 인 경우 person.name이 중복된 데이터는 null로 return 한다.
+  * 힌트 : 중복 체크는 `java.util.Map` 사용
+- Writer
+  * 2개의 ItemWriter를 사용해서 Person H2 DB에 저장 후 몇 건 저장됐는 지 log를 찍는다.
+  * Person 저장 ItemWriter와 log 출력 ItemWriter
+  * 힌트 : `CompositeItemWriter` 사용
