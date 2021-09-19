@@ -38,4 +38,5 @@
   * file, jdbc, jpa, hibernate, kafka, etc... 
 - ItemReader 구현체가 없으면 직접 개발
 - ItemStream은 ExecutionContext로 read, write 정보를 저장
+  
   ![](../../../../../resources/img/07.png)
