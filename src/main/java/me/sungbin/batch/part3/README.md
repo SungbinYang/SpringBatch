@@ -93,3 +93,17 @@
 ## JPA 데이터 쓰기
 - JpaItemWriter는 JPA Entity 기반으로 데이터를 DB에 write
 - Entity를 하나씩 EntityManager.persist 또는 EntityManager.merge로 insert
+
+## ItemProcessor interface 구조 이해
+- ItemReader에서 읽은 데이터를 가공 또는 Filtering
+- Step의 ItemProcessor는 optional
+- ItemProcessor는 필수는 아니지만, 책임 분리를 분리하기 위해 사용
+- ItemProcessor는 I(input)를 O(output)로 변환하거나
+- ItemWriter의 실행 여부를 판단 할 수 있도록 filtering 역할을 한다.
+  * ItemWriter는 not null만 처리한다.
+
+![](../../../../../resources/img/11.png)
+- 예를 들어 person.id가 짝수인 person만 return 하는 경우
+- ItemWriter는 5개의 person만 받아 처리
+
+![](../../../../../resources/img/12.png)

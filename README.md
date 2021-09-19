@@ -23,3 +23,4 @@
 - CSV 파일 데이터 쓰기
 - JDBC 데이터 쓰기
 - JPA 데이터 쓰기
+- ItemProcessor interface 구조 이해
