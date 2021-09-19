@@ -60,7 +60,7 @@ public class SavePersonConfiguration {
                 .listener(new SavePersonListener.SavePersonStepExecutionListener())
                 .faultTolerant()
                 .skip(NotFoundNameException.class)
-                .skipLimit(3)
+                .skipLimit(2)
                 .build();
     }
 
@@ -76,7 +76,7 @@ public class SavePersonConfiguration {
         };
 
         CompositeItemProcessor<Person, Person> itemProcessor = new CompositeItemProcessorBuilder<Person, Person>()
-                .delegates(validationProcessor, duplicateValidationProcessor)
+                .delegates(new PersonValidationRetryProcessor(), validationProcessor, duplicateValidationProcessor)
                 .build();
 
         itemProcessor.afterPropertiesSet();

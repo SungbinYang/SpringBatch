@@ -210,4 +210,23 @@
     * skipLimit(3), throw Exception이 3번 발생하면 실행된다.
     * skip 설정 조건에 해당하는 경우에만 실행된다.
   * SkipListener는 항상 faultTolerant() 메소드 후에 선언
+
+## retry 예외처리
+- Step 수행 중 간헐적으로 Exception 발생 시 재시도(retry) 설정
+  * DB Deadlock, Network timeout 등
+- retry(NullPointerException.class), retryLimit(3) 으로 설정된 경우
+  * NotFoundNameExeception이 발생한 경우 3번까지 재시도
+- 더 구체적으로 retry를 정의하려면 RetryTemplate 이용
+- 추가 요구사항
+  * NotFoundNameException이 발생하면, 3번 재 시도 후 Person.name을 “UNKNOWN” 으로 변경
+- RetryListener.open
+  * return false 인 경우 retry를 시도하지 않음.
+- RetryTemplate.RetryCallback
+- RetryListener.onError
+  * maxAttempts 설정값 만큼 반복
+- RetrtyTemplate.RecoveryCallback
+  * maxAttempts 반복 후에도 에러가 발생한 경우 실행
+- RetryListener.close
+
+![](../../../../../resources/img/17.png)
   

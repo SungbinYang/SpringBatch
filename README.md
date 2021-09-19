@@ -29,3 +29,4 @@
 - JobExecutionListener, StepExecutionListener 이해
 - StepListener 이해
 - skip 예외처리
+- retry 예외처리
