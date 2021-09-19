@@ -16,3 +16,8 @@
     * INPUT, OUTPUT은 같은 타입일 수 있음
   * writer에서 List<OUTPUT>을 받아 write
     ![](../../../../../resources/img/06.png)
+- 배치를 실행에 필요한 값을 parameter를 통해 외부에서 주입
+- JobParameters는 외부에서 주입된 parameter를 관리하는 객체
+- parameter를 JobParameters와 Spring EL(Expression Language)로 접근
+  * String parameter = jobParameters.getString(key, defaultValue);
+  * @Value(“#{jobParameters[key]}”)
