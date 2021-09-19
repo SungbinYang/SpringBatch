@@ -70,3 +70,13 @@
 - 기존에는 Jpa는 Paging 기반의 ItemReader만 제공됨.
 
 ![](../../../../../resources/img/09.png)
+
+## ItemWriter interface 구조 이해
+- ItemWriter는 마지막으로 배치 처리 대상 데이터를 어떻게 처리할 지 결정
+- Step에서 ItemWriter는 필수
+- 예를 들면 ItemReader에서 읽은 데이터를
+  * DB에 저장, API로 서버에 요청, 파일에 데이터를 write
+- 항상 write가 아님
+  * 데이터를 최종 마무리를 하는 것이 ItemWriter
+
+![](../../../../../resources/img/10.png)

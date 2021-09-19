@@ -19,3 +19,4 @@
 - CSV 파일 데이터 읽기
 - JDBC 데이터 읽기
 - JPA 데이터 읽기
+- ItemWriter interface 구조 이해
