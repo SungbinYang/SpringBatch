@@ -127,3 +127,12 @@
 - JobLauncherTestUtils은 테스트 코드에서 Job과 Step 실행
 
 ![](../../../../../resources/img/13.png)
+
+## JobExecutionListener, StepExecutionListener 이해
+- 스프링 배치에서 전 처리, 후 처리를 하는 다양한 종류의 Listener 존재.
+  * interface 구현
+  * @Annotation 정의
+- Job 실행 전과 후에 실행할 수 있는 JobExecutionListener
+- Step 실행 전과 후에 실행할 수 있는 StepExecutionListener
+
+![](../../../../../resources/img/14.png)

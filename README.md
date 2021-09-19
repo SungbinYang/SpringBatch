@@ -26,3 +26,4 @@
 - ItemProcessor interface 구조 이해
 - CSV 파일 데이터 읽고 MySQL DB에 insert하기
 - 테스트 코드 작성하기
+- JobExecutionListener, StepExecutionListener 이해
