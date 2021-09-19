@@ -14,3 +14,4 @@
 ## 03. 스프링 배치 기초 이해하기
 - Task 기반 배치와 Chunk 기반 배치
 - JobParameters 이해
+- @JobScope와 @StepScope 이해
