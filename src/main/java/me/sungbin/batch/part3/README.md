@@ -121,3 +121,9 @@
   * 2개의 ItemWriter를 사용해서 Person H2 DB에 저장 후 몇 건 저장됐는 지 log를 찍는다.
   * Person 저장 ItemWriter와 log 출력 ItemWriter
   * 힌트 : `CompositeItemWriter` 사용
+
+## 테스트 코드 작성하기
+- JobLauncher는 Job을 실행
+- JobLauncherTestUtils은 테스트 코드에서 Job과 Step 실행
+
+![](../../../../../resources/img/13.png)
