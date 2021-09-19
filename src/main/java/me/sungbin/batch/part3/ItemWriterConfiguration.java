@@ -80,7 +80,7 @@ public class ItemWriterConfiguration {
     private ItemWriter<Person> jpaItemWriter() throws Exception {
         JpaItemWriter<Person> itemWriter = new JpaItemWriterBuilder<Person>()
                 .entityManagerFactory(entityManagerFactory)
-                .usePersist(true)
+//                .usePersist(true)
                 .build();
 
         itemWriter.afterPropertiesSet();
