@@ -15,3 +15,4 @@
 - Task 기반 배치와 Chunk 기반 배치
 - JobParameters 이해
 - @JobScope와 @StepScope 이해
+- ItemReader interface 구조

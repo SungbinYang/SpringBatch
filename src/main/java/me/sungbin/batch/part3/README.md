@@ -31,3 +31,11 @@
   * @Scope(“step”) == @StepScope
 - Job과 Step 라이프사이클에 의해 생성되기 때문에 Thread safe하게 작동
 - @Value(“#{jobParameters[key]}”)를 사용하기 위해 @JobScope와 @StepScope는 필수
+- 배치 대상 데이터를 읽기 위한 설정
+  * 파일, DB, 네트워크, 등에서 읽기 위함.
+- Step에 ItemReader는 필수
+- 기본 제공되는 ItemReader 구현체
+  * file, jdbc, jpa, hibernate, kafka, etc... 
+- ItemReader 구현체가 없으면 직접 개발
+- ItemStream은 ExecutionContext로 read, write 정보를 저장
+![](../../../../../resources/img/07.png)
