@@ -83,3 +83,9 @@
 
 ## CSV 파일 데이터 쓰기
 - FlatFileItemWriter는 데이터가 매핑된 객체를 파일로 write
+
+## JDBC 데이터 쓰기
+- JdbcBatchItemWriter는 jdbc를 사용해 DB에 write
+- JdbcBatchItemWriter는 bulk insert/update/delete처리
+  * insert into person (name, age, address) values (1,2,3), (4,5,6), (7,8,9);
+- 단건 처리가 아니기 때문에 비교적 높은 성능 
