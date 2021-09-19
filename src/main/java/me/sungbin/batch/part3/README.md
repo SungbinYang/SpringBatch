@@ -64,3 +64,9 @@
   * 페이징 단위의 결과만 메모리에 할당하기 때문에, 비교적 더 적은 메모리를 사용
 
 ![](../../../../../resources/img/08.png)
+
+## JPA 데이터 읽기
+- 4.3+ 에서 Jpa 기반 Cursor ItemReader가 제공됨.
+- 기존에는 Jpa는 Paging 기반의 ItemReader만 제공됨.
+
+![](../../../../../resources/img/09.png)
