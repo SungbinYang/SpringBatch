@@ -80,3 +80,6 @@
   * 데이터를 최종 마무리를 하는 것이 ItemWriter
 
 ![](../../../../../resources/img/10.png)
+
+## CSV 파일 데이터 쓰기
+- FlatFileItemWriter는 데이터가 매핑된 객체를 파일로 write
