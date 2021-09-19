@@ -17,11 +17,15 @@
   * writer에서 List<OUTPUT>을 받아 write
     
     ![](../../../../../resources/img/06.png)
+
+## JobParameters 이해
 - 배치를 실행에 필요한 값을 parameter를 통해 외부에서 주입
 - JobParameters는 외부에서 주입된 parameter를 관리하는 객체
 - parameter를 JobParameters와 Spring EL(Expression Language)로 접근
   * String parameter = jobParameters.getString(key, defaultValue);
   * @Value(“#{jobParameters[key]}”)
+
+## @JobScope와 @StepScope 이해
 - @Scope는 어떤 시점에 bean을 생성/소멸 시킬 지 bean의 lifecycle을 설정
 - @JobScope는 job 실행 시점에 생성/소멸
   * Step에 선언
@@ -32,6 +36,8 @@
   * @Scope(“step”) == @StepScope
 - Job과 Step 라이프사이클에 의해 생성되기 때문에 Thread safe하게 작동
 - @Value(“#{jobParameters[key]}”)를 사용하기 위해 @JobScope와 @StepScope는 필수
+
+## ItemReader interface 구조
 - 배치 대상 데이터를 읽기 위한 설정
   * 파일, DB, 네트워크, 등에서 읽기 위함.
 - Step에 ItemReader는 필수
@@ -41,4 +47,20 @@
 - ItemStream은 ExecutionContext로 read, write 정보를 저장
   
   ![](../../../../../resources/img/07.png)
+
+## CSV 파일 데이터 읽기
 - FlatFileItemReader 클래스로 파일에 저장된 데이터를 읽어 객체에 매핑
+
+## JDBC 데이터 읽기 - Cursor
+- Cursor 기반 조회
+  * 배치 처리가 완료될 때 까지 DB Connection이 연결
+  * DB Connection 빈도가 낮아 성능이 좋은 반면, 긴 Connection 유지 시간 필요
+  * 하나의 Connection에서 처리되기 때문에, Thread Safe 하지 않음
+  * 모든 결과를 메모리에 할당하기 때문에, 더 많은 메모리를 사용
+- Paging 기반 조회
+  * 페이징 단위로 DB Connection을 연결
+  * DB Connection 빈도가 높아 비교적 성능이 낮은 반면, 짧은 Connection 유지 시간 필요
+  * 매번 Connection을 하기 때문에 Thread Safe
+  * 페이징 단위의 결과만 메모리에 할당하기 때문에, 비교적 더 적은 메모리를 사용
+
+![](../../../../../resources/img/08.png)
