@@ -7,3 +7,10 @@
     * 환경에 따라 성능이 다를 수 있음
 
 ![](../../../../../resources/img/18.png)
+
+## 성능 개선과 성능 비교
+- ItemProcessor와 ItemWriter를 Async로 실행
+- java.util.concurrent에서 제공되는 Future 기반 asynchronous
+- Async를 사용하기 위해 spring-batch-integration 필요
+
+![](../../../../../resources/img/19.png)
