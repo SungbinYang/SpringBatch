@@ -49,3 +49,6 @@
 - Multi-Thread Step 적용하기
 - Partition Step 적용하기
 - Parallel Step 적용하기
+
+## 07. 스프링 배치 설정과 실행
+- jar 생성과 실행
