@@ -30,3 +30,13 @@
 - Slave Step은 각각 하나의 Step으로 동작
 
 ![](../../../../../resources/img/21.png)
+
+## Partition Step 적용하기
+- n개의 Thead가 Step 단위로 동시 실행
+- Multi-Thread Step은 chunk 단위로 동시 실행했다면, Parallel Step은 step 단위로 동시 실행
+- 아래 그림을 예로 들면
+  * Job은 FlowStep1과 FlowStep2를 순차 실행
+  * FlowStep2는 Step2와 Step3을 동시 실행
+  * 설정에 따라 FlowStep1과 FlowStep2를 동시 실행도 가능
+
+![](../../../../../resources/img/22.png)

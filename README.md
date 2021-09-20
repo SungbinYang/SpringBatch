@@ -48,3 +48,4 @@
 - Async Step 적용하기
 - Multi-Thread Step 적용하기
 - Partition Step 적용하기
+- Parallel Step 적용하기
