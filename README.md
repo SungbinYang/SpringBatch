@@ -42,3 +42,6 @@
 - User와 Order Entity의 매핑관계 개발
 - 일별 주문 금약 집계 Step 개발
 - JobExecutionDecider로 주문 금액 집계 Step 실행 여부 결정
+
+## 06. 성능 개선과 성능 비교
+- 성능 개선 계획 이해
