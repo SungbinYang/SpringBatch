@@ -21,3 +21,12 @@
 - Thread-Safe 한 ItemReader 필수
 
 ![](../../../../../resources/img/20.png)
+
+## Partition Step 적용하기
+- 하나의 Master 기준으로 여러 Slave Step을 생성해 Step 기준으로 Multi-Thread 처리
+- 예를 들어
+  * item이 40,000개, Slave Step이 8개면 
+  * 40000 / 8 = 5000 이므로 하나의 Slave Step 당 5,000건 씩 나눠서 처리
+- Slave Step은 각각 하나의 Step으로 동작
+
+![](../../../../../resources/img/21.png)
