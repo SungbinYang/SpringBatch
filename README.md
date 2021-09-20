@@ -46,3 +46,4 @@
 ## 06. 성능 개선과 성능 비교
 - 성능 개선 계획 이해
 - Async Step 적용하기
+- Multi-Thread Step 적용하기

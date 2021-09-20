@@ -8,9 +8,16 @@
 
 ![](../../../../../resources/img/18.png)
 
-## 성능 개선과 성능 비교
+## Async Step 적용하기
 - ItemProcessor와 ItemWriter를 Async로 실행
 - java.util.concurrent에서 제공되는 Future 기반 asynchronous
 - Async를 사용하기 위해 spring-batch-integration 필요
 
 ![](../../../../../resources/img/19.png)
+
+## Multi-Thread Step 적용하기
+- Async Step은 ItemProcessor와 ItemWriter 기준으로 비동기 처리
+- Multi-Thread Step은 Chunk 단위로 멀티 스레딩 처리	
+- Thread-Safe 한 ItemReader 필수
+
+![](../../../../../resources/img/20.png)
